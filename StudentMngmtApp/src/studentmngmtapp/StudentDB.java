@@ -13,13 +13,15 @@ public class StudentDB
   private int courseCost = 600;
   
   
-  public StudentDB()
+  public StudentDB(String enrollYear)
   {
     Scanner input = new Scanner(System.in);
-    System.out.println("Enter First name: ");
+    System.out.print("Enter First name: ");
     this.firstName = input.nextLine();
-    System.out.println("Enter Last name: ");
+    System.out.print("Enter Last name: ");
     this.lastName = input.nextLine();
+    System.out.print("Enter student class level");
+    this.firstName = input.nextLine();
     this.enrollYear = enrollYear;
     
     System.out.println(name + " " + enrollYear);
