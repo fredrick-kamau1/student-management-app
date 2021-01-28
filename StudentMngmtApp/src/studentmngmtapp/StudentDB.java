@@ -4,13 +4,15 @@ import java.util.Scanner;
 
 public class StudentDB
 {
+  public static int stuId = 7700; 
+  public static int courseCost = 700; 
   private String firstName;
   private String lastName;
   private int enrollYear;
   private int stuID;
   private String courses;
   private int balance;
-  private int courseCost = 600;
+  
   
   
   public StudentDB()
@@ -25,6 +27,7 @@ public class StudentDB
     this.enrollYear = Integer.parseInt(input.nextLine());
     
     System.out.println(firstName + " " + lastName + " " + enrollYear);
+    stuId++; 
   }
   
   //Generate a students ID
