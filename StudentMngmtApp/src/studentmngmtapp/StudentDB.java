@@ -65,5 +65,12 @@ public class StudentDB
     String.format("$,.2f", balance); 
   }
   
+  //pay tuition
+  public void payTuition(int payment) 
+  {
+    
+  }
+  
+  
   
 }//end class
