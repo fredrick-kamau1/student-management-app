@@ -2,83 +2,72 @@ package studentmngmtapp;
 
 import java.util.Scanner;
 
-public class StudentDB
-{
-  public static int studentId = 7700; 
-  public static int courseCost = 700; 
+public class StudentDB {
+  public static int studentId = 7700;
+  public static int courseCost = 700;
   private String firstName;
   private String lastName;
   private int enrollYear;
   private String stuId;
-  private String courses = null;
+  private String courses = "";
   private int balance = 0;
-  
-  
-  
-  public StudentDB()
-  {
+
+  public StudentDB() {
     Scanner input = new Scanner(System.in);
     System.out.print("Enter First name: ");
     this.firstName = input.nextLine();
     System.out.print("Enter Last name: ");
     this.lastName = input.nextLine();
-    System.out.print("1. Freshman\n2. Sorphomore\n3. Junior\n4. Senior\n"
+    System.out.print("1. Freshman\n2. Sorphomore\n3. Junior\n4. Senior\n\n"
         + "Enter student class level: ");
     this.enrollYear = Integer.parseInt(input.nextLine());
-    
-    setStuId(); 
-    System.out.println(firstName + " " + lastName + " " + enrollYear + " " + 
-    stuId);
-    
+    setStuId();
   }
-  
-  //Generate a students ID
-  private void setStuId()
-  {
-    //Grade level + ID
-    studentId++; 
-    this.stuId = enrollYear + "" + studentId; 
+
+  // Generate a students ID
+  private void setStuId() {
+    // Grade level + ID
+    studentId++;
+    this.stuId = enrollYear + "" + studentId;
   }
-  
-  //Enroll in courses
-  public void stuEnroll()
-  {
-    //loop that terminates when user hits 0
+
+  // Enroll in courses
+  public void stuEnroll() {
+    // loop that terminates when user enters "q"
     String course = "";
-    
-    do {  
+
+    do {
       System.out.print("Enter course to enroll (Q to quit): ");
       Scanner input = new Scanner(System.in);
       course = input.nextLine();
-      if(!course.equalsIgnoreCase("Q")) 
-      {
-        courses = courses + "\n" + course; 
-        balance = balance + courseCost; 
+      if (!course.equalsIgnoreCase("Q")) {
+        courses = courses + "\n  " + course;
+        balance = balance + courseCost;
       }
-    }while(!course.equalsIgnoreCase("Q"));
-    
-    System.out.println("Enrolled In: " + courses);
-    System.out.println("Tuition balance: " + balance);
+
+    } while (!course.equalsIgnoreCase("Q"));
+
   }
-  //View balance
-  public void viewBalance()
-  {
-    System.out.println("Your balance is: $ " + balance);
-    //String.format("$,.2f", balance ); 
+
+  // View balance
+  public void viewBalance() {
+    System.out.println("\nYour balance is: $ " + balance);
   }
-  
-  //pay tuition
-  public void payTuition(int payment) 
-  {
+
+  // pay tuition
+  public void payTuition() {
+    viewBalance();
     System.out.print("How much will you be paying today? ");
     Scanner input = new Scanner(System.in);
-    payment = Integer.parseInt(input.nextLine());
-    balance -= payment; 
-    System.out.println("Thank you for your payment of $ " + payment);
-    //String.format("Thank you for your payment of $,.2f", payment); 
-    viewBalance(); 
+    int payment = Integer.parseInt(input.nextLine());
+    balance -= payment;
   }
-  
-  
-  
-}//end class
+
+  @Override
+  public String toString() {
+    return "\nName: " + firstName + " " + lastName + "\nStudet ID#: " + stuId
+        + "\nEnrollment Year: " + enrollYear + "\nCourses Enrolled in: "
+        + courses + "\nBalance: $" + balance + "\n";
+  }
+
+}// end class
