@@ -6,6 +6,7 @@ public class StudentDBMain
   {
     StudentDB newStudent = new StudentDB(); 
     newStudent.stuEnroll();
+    newStudent.payTuition(500);
   }
 
 }

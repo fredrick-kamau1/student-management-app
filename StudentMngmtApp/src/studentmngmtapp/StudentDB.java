@@ -27,7 +27,8 @@ public class StudentDB
     this.enrollYear = Integer.parseInt(input.nextLine());
     
     setStuId(); 
-    System.out.println(firstName + " " + lastName + " " + enrollYear + " " + stuId);
+    System.out.println(firstName + " " + lastName + " " + enrollYear + " " + 
+    stuId);
     
   }
   
@@ -62,13 +63,20 @@ public class StudentDB
   //View balance
   public void viewBalance()
   {
-    String.format("$,.2f", balance); 
+    System.out.println("Your balance is: $ " + balance);
+    //String.format("$,.2f", balance ); 
   }
   
   //pay tuition
   public void payTuition(int payment) 
   {
-    
+    System.out.print("How much will you be paying today? ");
+    Scanner input = new Scanner(System.in);
+    payment = Integer.parseInt(input.nextLine());
+    balance -= payment; 
+    System.out.println("Thank you for your payment of $ " + payment);
+    //String.format("Thank you for your payment of $,.2f", payment); 
+    viewBalance(); 
   }
   
   
